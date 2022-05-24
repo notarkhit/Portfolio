@@ -54,6 +54,37 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
 
+//profile
+
+const profileTexture = new THREE.TextureLoader().load('Profile.jpg');
+
+const profile = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial( { map: profileTexture } ),
+);
+
+scene.add(profile);
+
+// Moon
+
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial( {
+    map: moonTexture,
+    normalMap: normalTexture,
+  } )
+);
+
+scene.add(moon);
+
+
+
+
+
+
 
 function animate() {
   requestAnimationFrame( animate );
